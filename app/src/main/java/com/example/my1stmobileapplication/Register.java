@@ -38,6 +38,11 @@ public class Register extends AppCompatActivity {
 
                         fAuth = FirebaseAuth.getInstance();
 
+                        if (fAuth.getCurrentUser() !=null){
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
+                        }
+
                         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -72,7 +77,7 @@ public class Register extends AppCompatActivity {
                                             Toast.makeText(Register.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
                                     }
-                                }))
+                                }
                             }
                             }
 
